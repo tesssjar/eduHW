@@ -20,6 +20,7 @@ namespace BLL
         {
             var student = new Student(name, lastname, age, favsubj);
             _repository.studList.Add(student);
+            _repository.Save();
         }
 
         public List<Student> GetAllStudents()
@@ -36,6 +37,7 @@ namespace BLL
             {
                 _repository.studList.Remove(stud);
             }
+            _repository.Save();
         }
 
         public Student GetStudent(int Id)

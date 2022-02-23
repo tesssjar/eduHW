@@ -8,7 +8,7 @@ namespace BLL
 {
     public interface IStudentsService
     {
-        public void AddStudent();
+        public void AddStudent(string name, string lastname, string favsubj, int age);
         public void DeleteStudent(int id);
         public List<Student> GetAllStudents();
         public Student GetStudent(int Id);

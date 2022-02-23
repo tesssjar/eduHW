@@ -12,7 +12,7 @@ namespace Program
 {
     class Program
     {
-        public void Main()
+        public static void Main()
         {
             Application application = ConfigureServices(new ServiceCollection()).BuildServiceProvider().GetRequiredService<Application>();
 
@@ -21,8 +21,8 @@ namespace Program
 
         public static IServiceCollection ConfigureServices(IServiceCollection services) 
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            services.AddTransient<IRepository, Repository<Student>>(provider => new Repository<Student>(path));
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "1.txt";
+            services.AddTransient<IRepository<Student>, Repository<Student>>(provider => new Repository<Student>(path));
             services.AddTransient<IStudentsService, StudentsService>();
             services.AddTransient<Application>();
             return services;

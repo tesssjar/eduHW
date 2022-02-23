@@ -9,5 +9,6 @@ namespace DAL
     public interface IRepository<T>
     {
         public List<T> studList { get; set; }
+        public void Save();
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace DAL
 {
@@ -17,7 +19,12 @@ namespace DAL
 
         public void Save()
         {
-            
+            string jsonString = JsonSerializer.Serialize(studList);
+
+            using (FileStream fStream = new FileStream(FilePath, FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                JsonSerializer.Serialize(fStream, studList);
+            }
         }
     }
 }
